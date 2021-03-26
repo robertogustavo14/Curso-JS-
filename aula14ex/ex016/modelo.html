@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de exercicio</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header>
+        <h1>Vamos contar</h1>
+    </header>
+    <section>
+        <div>
+            <p><label for="number">Inicio:</label>
+            <input type="number" id="teste">
+            </p>
+            <p>
+            <label for="number">Fim:</label>
+            <input type="number" id="fim">
+            </p>
+            <p>
+            <label for="number">Passo:</label>
+            <input type="number" id="passo">
+            </p>
+            <p><button id="contar" onclick="contar()">Contar</button></p>
+        </div>
+        <div id="cont">
+        Preparando a contagem...
+        </div>
+    </section>
+    <footer>
+        <p>&copy: Rodapé</p>
+    </footer>
+    <script>
+
+
+        function contar (){
+            var inicio = parseInt(document.getElementById("teste").value)
+            var fim = parseInt (document.getElementById("fim").value)
+            var passo = parseInt (document.getElementById("passo").value)
+            var resu = document.getElementById("cont")
+            resu.innerHTML = "🏁"
+            if( inicio > fim){
+                window.alert("Inicio maior que o fim. Tente novamente")
+            }
+            if(passo == 0 || passo == null){
+                window.alert("Passo em 0,considerando 1")
+                passo = 1
+
+            }
+            while (inicio<=fim){
+                resu.innerHTML += ` ${inicio} ⏩ `
+                inicio = inicio + passo
+
+            }
+            resu.innerHTML += ` 🏁 `
+            
+
+            
+        }
+    
+
+    </script>
+</body>
+</html>
