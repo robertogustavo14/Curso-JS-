@@ -42,18 +42,21 @@
             var passo = parseInt (document.getElementById("passo").value)
             var resu = document.getElementById("cont")
             resu.innerHTML = "🏁"
-            if( inicio > fim){
-                window.alert("Inicio maior que o fim. Tente novamente")
-            }
             if(passo == 0 || passo == null){
                 window.alert("Passo em 0,considerando 1")
                 passo = 1
 
             }
-            while (inicio<=fim){
-                resu.innerHTML += ` ${inicio} ⏩ `
-                inicio = inicio + passo
+            if (inicio<=fim){
+                for(inicio = inicio;inicio <= fim;inicio = inicio + passo){
+                    resu.innerHTML += `${inicio} ⏩`
+                }
+            }
+            else if ( inicio >= fim){
+                for(inicio = inicio;inicio >= fim; inicio = inicio - passo){
+                    resu.innerHTML += ` ${inicio} ⏩ `   
 
+                }
             }
             resu.innerHTML += ` 🏁 `
             
